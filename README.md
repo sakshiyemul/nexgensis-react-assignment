@@ -35,9 +35,6 @@ DummyJSON does not provide a combined search + category endpoint for this flow. 
 
 DummyJSON add/edit/delete endpoints are simulated. The app updates its local product list immediately after a successful API response so the UI demonstrates the requested change even though the remote demo API does not persist mutations.
 
-## AI usage
-
-AI assistance was used for scaffolding and implementation guidance. The code was reviewed and tested manually, and the implementation choices are documented above.
 
 ## Submission note
 
