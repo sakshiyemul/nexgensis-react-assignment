@@ -1,13 +1,12 @@
 "use client";
-
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   addProduct, deleteProduct, getCategories, getProductById, getProducts,
   getProductsByCategory, Product, searchProducts, updateProduct
 } from "@/lib/api/products";
 
-export default function ProductsPage() {
+function ProductsPageContent() {
   const router = useRouter();
   const params = useSearchParams();
   const pageParam = Number(params.get("page"));
@@ -161,5 +160,12 @@ export default function ProductsPage() {
         </div>}
       </div>
     </main>
+  );
+}
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen p-6 text-center">Loading...</div>}>
+      <ProductsPageContent />
+    </Suspense>
   );
 }
